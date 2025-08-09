@@ -1,0 +1,34 @@
+---
+title: "Getting Started with rCoinbase"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with rCoinbase}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Generating your token file
+
+1. To get started please visit coinbase and request api access. You can use the link below to see how to generate the tokens: <https://www.youtube.com/watch?v=nuuiMkkzWxc>
+
+2. All requests in this package must be authenticated. You will need to save you token files as "cb_tokens.rds" in your working directory. Here is an example of how to run it and save them.
+
+3. After you have initially saved the "cb_tokens.rds", you can assign them via the wrapper: `assign_tokens()`
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+
+saveRDS(list(api_key = "organizations/846d3bac-8e52-48c5-ad3f-57148eb60e57/apiKeys/4f928e1a-8dad-4826-9484-47a7d8346daf",
+     private_key_pem = "-----BEGIN EC PRIVATE KEY-----\nMHcCAQEEIOhKjLMRYbgFRHJT33YK6O4qzQuDQyitSQ8dJmqas2U2oAoGCCqGSM49\nAwEHoUQDQgAETJXuT5cMbf1/s3BxZLb6VaYpcOCo7X5dhw2VHsNhHcd+BJ4D2Pfc\nUlvGdvsioLGemGBbifqIlf1Nz3INKUoa+w==\n-----END EC PRIVATE KEY-----\n",
+     tokens = list(jwt = NULL,
+                   exp_time = NULL
+                   )
+     ), file = "cb_tokens.rds")
+
+readRDS("cb_tokens.rds")
+```
+
